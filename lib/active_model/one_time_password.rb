@@ -31,7 +31,7 @@ module ActiveModel
 
     module InstanceMethodsOnActivation
       def otp_regenerate_secret
-        self.otp_column = ROTP::Base32.random_base32
+        self.otp_column = ROTP::Base32.random
       end
 
       def otp_regenerate_counter
