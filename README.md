@@ -71,6 +71,7 @@ user.otp_secret_key
 ### Getting current code (e.g. to send via SMS)
 ```ruby
 user.otp_code # => '186522'
+user.otp_code(:interval => 60)
 sleep 30
 user.otp_code # => '850738'
 
@@ -82,6 +83,7 @@ user.otp_code(time: Time.now + 3600) # => '317438'
 
 ```ruby
 user.authenticate_otp('186522') # => true
+user.authenticate_otp('186522', :interval => 60)
 sleep 30 # let's wait 30 secs
 user.authenticate_otp('186522') # => false
 ```
